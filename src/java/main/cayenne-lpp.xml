@@ -1,0 +1,63 @@
+<msgs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/krishnact/binmsg/master/msgs.xsd" packageName="org.himalay.lpp">
+	
+	<msg package="" type="LPPHeader">
+		<ui8 name="dataChannel"></ui8>
+		<ui8 name="messageType"></ui8>
+	</msg>
+	<msg type="DigitalInput_" package="" base="LPPData" predicate="0x00" concrete="DigitalInput" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="_value"></ui8>
+	</msg>
+	<msg type="DigitalOutput_" package="" base="LPPData" predicate="0x01" concrete="DigitalOutput" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="_value"></ui8>
+	</msg>	
+	<msg type="AnalogInput_" package="" base="LPPData" predicate="0x02" concrete="AnalogInput" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<i16 name="_value"></i16>
+	</msg>
+	<msg type="AnalogOutput_" package="" base="LPPData" predicate="0x03" concrete="AnalogOutput" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<i16 name="_value"></i16>
+	</msg>		
+	<msg type="Illuminance_" package="" base="LPPData" predicate="0x65" concrete="Illuminance" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui16 name="_value"></ui16>
+	</msg>	
+	<msg type="Presence_" package="" base="LPPData" predicate="0x66" concrete="Presence" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="_value"></ui8>
+	</msg>	
+	<msg type="Temperature_" package="" base="LPPData" predicate="0x67" concrete="Temperature" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<i16 name="_value"></i16>
+	</msg>
+	<msg type="Humidity_" package="" base="LPPData" predicate="0x68" concrete="Humidity" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui8 name="_value"></ui8>
+	</msg>
+	<msg type="Acceleration_" package="" base="LPPData" predicate="0x71" concrete="Acceleration" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<i16 name="_x"></i16>
+		<i16 name="_y"></i16>
+		<i16 name="_z"></i16>
+	</msg>
+	<msg type="Pressure_" package="" base="LPPData" predicate="0x73" concrete="Pressure" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui16 name="_value"></ui16>
+	</msg>	
+	<msg type="Gyration_" package="" base="LPPData" predicate="0x86" concrete="Gyration" header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<i16 name="_x"></i16>
+		<i16 name="_y"></i16>
+		<i16 name="_z"></i16>
+	</msg>
+	<msg type="GPS_" package="" base="LPPData" predicate="0x88" concrete="GPS"  header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<i24 name="_latitude"></i24>
+		<i24 name="_longitude"></i24>
+		<i24 name="_elevation"></i24>
+	</msg>	
+	
+</msgs>
