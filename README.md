@@ -1,5 +1,5 @@
 # cayenne-lpp
-Library for Cayenne Low Power Payload
+Java library for Cayenne Low Power Payload (https://mydevices.com/cayenne/docs/lora/#lora-how-lorawan-works)
 
 # Quick Start
 Following Groovy code shows how to use the library:
