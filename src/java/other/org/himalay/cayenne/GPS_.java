@@ -1,7 +1,7 @@
 /** Copyright (2016) Krishna C Tripathi. All rights reserved.
  * 
  * You are not allowed to read/copy/distribute following code without explicit written authorization from Krishna C Tripathi
- * Event after authorization this software is provided "as is" with no explicit or implicit warranties whatsoever 
+ * Even after authorization this software is provided "as is" with no explicit or implicit warranties whatsoever 
  */
 
 package org.himalay.cayenne;
@@ -17,7 +17,6 @@ import org.himalay.msgs.runtime.Created;
 import org.himalay.msgs.runtime.*;
 
 @Created(date = "Wed Oct 25 20:31:12 EST 2017")
-
 public class GPS_ extends LPPDataFactory.LPPData { // Concrete type is GPS
 
 	// members variables
@@ -142,13 +141,19 @@ public class GPS_ extends LPPDataFactory.LPPData { // Concrete type is GPS
 		}
 		// write _latitude
 		dc.indent();
-		dc.getPs().println("_latitude=" + _latitude + "(0x" + Integer.toHexString(_latitude) + ")");
+		dc.getPs().println(
+				"_latitude=" + _latitude + "(0x"
+						+ Integer.toHexString(_latitude) + ")");
 		// write _longitude
 		dc.indent();
-		dc.getPs().println("_longitude=" + _longitude + "(0x" + Integer.toHexString(_longitude) + ")");
+		dc.getPs().println(
+				"_longitude=" + _longitude + "(0x"
+						+ Integer.toHexString(_longitude) + ")");
 		// write _elevation
 		dc.indent();
-		dc.getPs().println("_elevation=" + _elevation + "(0x" + Integer.toHexString(_elevation) + ")");
+		dc.getPs().println(
+				"_elevation=" + _elevation + "(0x"
+						+ Integer.toHexString(_elevation) + ")");
 		dc.decreaseIndent();
 		return retVal;
 	}

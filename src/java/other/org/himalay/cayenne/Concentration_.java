@@ -5,7 +5,6 @@
  */
 
 package org.himalay.cayenne;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -15,22 +14,17 @@ import java.io.PrintStream;
 import org.himalay.msgs.runtime.Created;
 
 import org.himalay.msgs.runtime.*;
-
-@Created(date = "Wed Oct 25 20:31:12 EST 2017")
-public class Acceleration_ extends LPPDataFactory.LPPData { // Concrete type is
-															// Acceleration
+@Created(date = "Sun Mar 10 12:20:42 EDT 2019")
+public class Concentration_ extends LPPDataFactory.LPPData { // Concrete type is
+																// Concentration
 
 	// members variables
 	// header
 	public LPPHeader header;
-	// _x
-	public short _x;
-	// _y
-	public short _y;
-	// _z
-	public short _z;
+	// _value
+	public int _value;
 
-	public Acceleration_() // throws Exception
+	public Concentration_() // throws Exception
 	{
 		init();
 	}
@@ -38,11 +32,7 @@ public class Acceleration_ extends LPPDataFactory.LPPData { // Concrete type is
 	private void init() {
 		// Initialize header
 		header = new LPPHeader();
-		// Initialize _x
-
-		// Initialize _y
-
-		// Initialize _z
+		// Initialize _value
 
 	}
 
@@ -50,20 +40,10 @@ public class Acceleration_ extends LPPDataFactory.LPPData { // Concrete type is
 
 		preRead();
 		int retVal = 0;
-		// read _x
+		// read _value
 		{
-			_x = istream.readShort();
-			retVal += 2;
-		}
-		// read _y
-		{
-			_y = istream.readShort();
-			retVal += 2;
-		}
-		// read _z
-		{
-			_z = istream.readShort();
-			retVal += 2;
+			_value = BinPrimitive.readUI24(istream);
+			retVal += 3;
 		}
 
 		postRead();
@@ -76,20 +56,10 @@ public class Acceleration_ extends LPPDataFactory.LPPData { // Concrete type is
 
 		// read header
 		retVal += header.read(istream);
-		// read _x
+		// read _value
 		{
-			_x = istream.readShort();
-			retVal += 2;
-		}
-		// read _y
-		{
-			_y = istream.readShort();
-			retVal += 2;
-		}
-		// read _z
-		{
-			_z = istream.readShort();
-			retVal += 2;
+			_value = BinPrimitive.readUI24(istream);
+			retVal += 3;
 		}
 
 		postRead();
@@ -107,22 +77,19 @@ public class Acceleration_ extends LPPDataFactory.LPPData { // Concrete type is
 		// write header
 		if (header != null)
 			retVal += header.write(ostream);
-		// write _x
-		ostream.writeShort(_x);
-		retVal += 2;
-		// write _y
-		ostream.writeShort(_y);
-		retVal += 2;
-		// write _z
-		ostream.writeShort(_z);
-		retVal += 2;
+		// write _value
+		{
+			ostream.writeByte((_value & 0x00FF0000) >> 16);
+			ostream.writeShort((_value & 0x0000FFFF));
+			retVal += 3;
+		}
 		postWrite();
 		return retVal;
 	}
 
 	public int dump(DumpContext dc) throws IOException {
 		dc.indent();
-		dc.getPs().print("Acceleration_\n");
+		dc.getPs().print("Concentration_\n");
 		dc.increaseIndent();
 		int retVal = 0;
 		// write header
@@ -131,15 +98,10 @@ public class Acceleration_ extends LPPDataFactory.LPPData { // Concrete type is
 			dc.getPs().println("header");
 			retVal += header.dump(dc);
 		}
-		// write _x
+		// write _value
 		dc.indent();
-		dc.getPs().println("_x=" + _x + "(0x" + Integer.toHexString(_x) + ")");
-		// write _y
-		dc.indent();
-		dc.getPs().println("_y=" + _y + "(0x" + Integer.toHexString(_y) + ")");
-		// write _z
-		dc.indent();
-		dc.getPs().println("_z=" + _z + "(0x" + Integer.toHexString(_z) + ")");
+		dc.getPs().println(
+				"_value=" + _value + "(0x" + Integer.toHexString(_value) + ")");
 		dc.decreaseIndent();
 		return retVal;
 	}
@@ -155,38 +117,16 @@ public class Acceleration_ extends LPPDataFactory.LPPData { // Concrete type is
 	// {
 	// this.header= val;
 	// }
-	// Getter for _x
-	// public short get_x()
+	// Getter for _value
+	// public int get_value()
 	// {
-	// return _x ;
+	// return _value ;
 	// }
 
-	// Setter for _x
-	// public void set_x(short val)
+	// Setter for _value
+	// public void set_value(int val)
 	// {
-	// this._x= val;
-	// }
-	// Getter for _y
-	// public short get_y()
-	// {
-	// return _y ;
-	// }
-
-	// Setter for _y
-	// public void set_y(short val)
-	// {
-	// this._y= val;
-	// }
-	// Getter for _z
-	// public short get_z()
-	// {
-	// return _z ;
-	// }
-
-	// Setter for _z
-	// public void set_z(short val)
-	// {
-	// this._z= val;
+	// this._value= val;
 	// }
 
 	public int getSize() throws IOException {
@@ -196,7 +136,7 @@ public class Acceleration_ extends LPPDataFactory.LPPData { // Concrete type is
 
 	public void setHeader(LPPHeader header) {
 		this.header = header;
-		this.header.setMessageType(0x71);
+		this.header.setMessageType(0x7d);
 	}
 
 	public LPPHeader getHeader() {

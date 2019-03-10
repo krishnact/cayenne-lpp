@@ -59,5 +59,12 @@
 		<i24 name="_longitude"></i24>
 		<i24 name="_elevation"></i24>
 	</msg>	
-	
+	<msg type="Concentration_" package="" base="LPPData" predicate="0x7d" concrete="Concentration"  header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui24 name="_value"></ui24>
+	</msg>		
+	<msg type="Energy_" package="" base="LPPData" predicate="0x83" concrete="Energy"  header="header">
+		<complex name="header" type="LPPHeader"></complex>
+		<ui32 name="_value"></ui32>
+	</msg>		
 </msgs>

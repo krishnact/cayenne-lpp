@@ -1,7 +1,7 @@
 /** Copyright (2016) Krishna C Tripathi. All rights reserved.
  * 
  * You are not allowed to read/copy/distribute following code without explicit written authorization from Krishna C Tripathi
- * Event after authorization this software is provided "as is" with no explicit or implicit warranties whatsoever 
+ * Even after authorization this software is provided "as is" with no explicit or implicit warranties whatsoever 
  */
 
 package org.himalay.cayenne;
@@ -17,7 +17,6 @@ import org.himalay.msgs.runtime.Created;
 import org.himalay.msgs.runtime.*;
 
 @Created(date = "Wed Oct 25 20:31:11 EST 2017")
-
 public class LPPHeader extends BinStruct implements PublicBinMsg {
 
 	// members variables
@@ -83,10 +82,14 @@ public class LPPHeader extends BinStruct implements PublicBinMsg {
 		int retVal = 0;
 		// write dataChannel
 		dc.indent();
-		dc.getPs().println("dataChannel=" + dataChannel + "(0x" + Integer.toHexString(dataChannel) + ")");
+		dc.getPs().println(
+				"dataChannel=" + dataChannel + "(0x"
+						+ Integer.toHexString(dataChannel) + ")");
 		// write messageType
 		dc.indent();
-		dc.getPs().println("messageType=" + messageType + "(0x" + Integer.toHexString(messageType) + ")");
+		dc.getPs().println(
+				"messageType=" + messageType + "(0x"
+						+ Integer.toHexString(messageType) + ")");
 		dc.decreaseIndent();
 		return retVal;
 	}

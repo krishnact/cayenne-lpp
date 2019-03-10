@@ -6,17 +6,28 @@
 
 package org.himalay.cayenne;
 
-import org.himalay.cayenne.Pressure_;
+import org.himalay.cayenne.GPS_;
 import org.himalay.msgs.runtime.Created;
 
-@Created(date = "Wed Oct 25 20:23:57 EST 2017")
-public class Pressure extends Pressure_ { // Concrete type is Pressure
-	public double getValue() {
-		return (this._value * 0.1d);
+@Created(date = "Wed Mar 09 18:27:18 EST 2019")
+public class Concentration extends Concentration_ { // Concrete type is GPS
+
+	/**
+	 * Get longitude in degrees
+	 * 
+	 * @return
+	 */
+	public int getValuePPM() {
+		return _value;
 	}
 
-	public void setValue(double temp) {
-		this._value = (short) (temp * 10);
+	/**
+	 * Set longitude in degrees
+	 * 
+	 * @return
+	 */
+	public void setValuePPM(int value) {
+		this._value = value;
 	}
 }
 

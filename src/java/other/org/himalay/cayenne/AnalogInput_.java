@@ -1,7 +1,7 @@
 /** Copyright (2016) Krishna C Tripathi. All rights reserved.
  * 
  * You are not allowed to read/copy/distribute following code without explicit written authorization from Krishna C Tripathi
- * Event after authorization this software is provided "as is" with no explicit or implicit warranties whatsoever 
+ * Even after authorization this software is provided "as is" with no explicit or implicit warranties whatsoever 
  */
 
 package org.himalay.cayenne;
@@ -17,8 +17,8 @@ import org.himalay.msgs.runtime.Created;
 import org.himalay.msgs.runtime.*;
 
 @Created(date = "Wed Oct 25 20:31:11 EST 2017")
-
-public class AnalogInput_ extends LPPDataFactory.LPPData { // Concrete type is AnalogInput
+public class AnalogInput_ extends LPPDataFactory.LPPData { // Concrete type is
+															// AnalogInput
 
 	// members variables
 	// header
@@ -99,7 +99,8 @@ public class AnalogInput_ extends LPPDataFactory.LPPData { // Concrete type is A
 		}
 		// write _value
 		dc.indent();
-		dc.getPs().println("_value=" + _value + "(0x" + Integer.toHexString(_value) + ")");
+		dc.getPs().println(
+				"_value=" + _value + "(0x" + Integer.toHexString(_value) + ")");
 		dc.decreaseIndent();
 		return retVal;
 	}
